@@ -21,6 +21,8 @@ exports.collectData = function(request, cb){
   request.on("end", function(){
     console.log(data + " this is the data we get");
     cb(null, JSON.parse(data));
+    //make the call to the db.
+
   });
 };
 
