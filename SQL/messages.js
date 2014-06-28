@@ -1,7 +1,19 @@
+var _ = require('underscore');
+var db = require(__dirname + '/db.js').db
+
 var utils = require('./server-util.js');
 
-exports.getMessages = getMessages = function(req, res){
-  utils.sendResponse(res, {results: messages});
+// exports.getMessages = getMessages = function(req, res){
+//   utils.sendResponse(res, {results: messages});
+// };
+exports.getMessages = function(req, res, path){
+  var arr = path.split('/');
+  arr = _.filter(arr, function(str){ return str !== ''; });
+  var table = arr[0];
+  var id = arr[1];
+  if (id === undefined){
+    db.select(table, '*', '', res);
+  }
 };
 
 exports.postMessage = postMessage = function(req, res){

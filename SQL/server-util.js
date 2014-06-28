@@ -1,3 +1,4 @@
+var _ = require('underscore');
 exports.headers = {
   "access-control-allow-origin": "*",
   "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
@@ -26,3 +27,13 @@ exports.collectData = function(request, cb){
   });
 };
 
+// exports.get(req, res, path){
+//   var arr = path.split('/');
+//   arr = _.filter(arr, function(str){ return str !== ''; });
+//   var table = arr[0];
+//   var id = arr[1];
+//   if (id === undefined){
+//     db.select(table, '*', '', res)
+//   }
+
+// }
