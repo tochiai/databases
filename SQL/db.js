@@ -37,4 +37,12 @@ db.select = function(tname, cols, where, res, callback){
     db.end();
   });
 };
+db.insert = function(tname, data, callback){
+  var query = "INSERT INTO " + tname + " SET ?";
+  console.log(query);
+  connection.query(query, data, function(err, results){
+    if (err) throw err;
+    callback(results);
+  })
+}
 exports.db = db;

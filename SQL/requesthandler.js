@@ -16,6 +16,8 @@ exports.handler = function(request, response) {
   //Only handle GET
   if (method === 'GET') {
     messageRouter[method](request, response, path);
+  } else if (method === 'POST'){
+    messageRouter[method](request, response, path);
   } else {
     messages.send404(request, response);
   }
